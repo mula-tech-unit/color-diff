@@ -27,12 +27,14 @@ import {
   matchPaletteLab,
   mapPaletteLab,
   labPaletteMapKey,
+  mapPaletteN,
 } from "./lib/palette.js";
 
 // Exports
 export {
   closest,
   closestLab,
+  closestN,
   furthest,
   furthestLab,
   mapPalette,
@@ -211,4 +213,19 @@ function closest_lab(target, relative) {
 // eslint-disable-next-line camelcase
 function furthest_lab(target, relative) {
   return furthestLab(target, relative);
+}
+
+
+/**
+ * Returns the N colors in the palette closest to target, given the background color bc
+ * @param {RGBAColor} target
+ * @param {RGBAColor[]} relative
+ * @param {number} n Number of closest colors to return
+ * @param {RGBAColor} [bc]
+ * @returns {RGBAColor[]}
+ */
+function closestN(target, relative, n, bc) {
+  bc = bc || { R: 255, G: 255, B: 255 };
+  const result = mapPaletteN([target], relative, n, bc);
+  return result[paletteMapKey(target)];
 }
