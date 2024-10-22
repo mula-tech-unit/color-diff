@@ -219,7 +219,7 @@ function furthest_lab(target, relative) {
 /**
  * Returns the N colors in the palette closest to target, given the background color bc
  * @param {RGBAColor} target
- * @param {RGBAColor[]} relative
+ * @param {(RGBAColor & {id: string})[]} relative
  * @param {number} n Number of closest colors to return
  * @param {RGBAColor} [bc]
  * @returns {RGBAColor[]}
