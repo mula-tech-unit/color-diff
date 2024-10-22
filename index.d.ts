@@ -20,7 +20,7 @@ export type PaletteMapLab = { [key: string]: LabColor };
 
 export function closest(target: RGBAColor, relative: RGBAColor[], bc?: RGBAColor): RGBAColor;
 export function closestLab(target: LabColor, relative: LabColor[]): LabColor;
-export function closestN(target: RGBAColor, relative: (RGBAColor & {id: string})[], n: number, bc?: RGBAColor): RGBAColor[];
+export function closestN(target: RGBAColor, relative: (RGBAColor & {id: string})[], n: number, bc?: RGBAColor): (RGBAColor & {score: number})[];
 export function furthest(target: RGBAColor, relative: RGBAColor[], bc?: RGBAColor): RGBAColor;
 export function furthestLab(target: LabColor, relative: LabColor[]): LabColor;
 
